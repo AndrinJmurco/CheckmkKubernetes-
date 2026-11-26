@@ -26,7 +26,6 @@ rules:
   - services
   - pods
   - configmaps
-  - secrets
   - resourcequotas
   - replicationcontrollers
   - limitranges

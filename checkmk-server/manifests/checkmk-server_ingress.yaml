@@ -1,15 +1,18 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: checkmk
   namespace: checkmk
 spec:
   rules:
-    # Adapt to your own system
+    # Adapt to your own system.
     - host: monitor.your.cluster
       http:
         paths:
           - path: /
+            pathType: ImplementationSpecific
             backend:
-              serviceName: checkmk
-              servicePort: 80
+              service:
+                name: checkmk
+                port:
+                  number: 80
